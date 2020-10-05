@@ -1,37 +1,19 @@
 # -*- coding: utf-8 -*-
-import unidecode
+from flask import Flask, render_template, request
 from chatterbot import ChatBot
-from chatterbot.trainers import ListTrainer
-from chatterbot.logic import LogicAdapter
-from chatterbot.response_selection import get_first_response
-from chatterbot.comparisons import levenshtein_distance
-from chatterbot.response_selection import *  # get_first_response
-from chatterbot.comparisons import *  # levenshtein_distance
-from chatterbot import *
+from chatterbot.response_selection import get_random_response
+import random
 import csv
-import json
+from shutil import copyfile
 import sys
 import os
-from flask import Flask, render_template, request
-from bs4 import BeautifulSoup
-import requests
-import re
-import nltk
-from newspaper import Article
-from newspaper import news_pool
-from googlesearch import search
-import wikipedia
-from logging import *
-import logging
-import urllib3
-import sys
-from chatterbot.adapters import Adapter
-from chatterbot.storage import StorageAdapter
-from chatterbot.search import IndexedTextSearch
-from chatterbot.conversation import Statement
-import csv
-import unidecode
-import re
+import codecs
+#from chatterbot.trainers import ChatterBotCorpusTrainer
+from botConfig import myBotName, chatBG, botAvatar, useGoogle, confidenceLevel
+
+##Experimental Date Time
+from dateTime import getTime, getDate
+
 import logging
 #logging.basicConfig(level=logging.INFO)
 #logging.basicConfig(filename="Log_Test_File.txt", level=logging.INFO, filemode='a')
